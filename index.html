@@ -84,7 +84,7 @@
                 </a>
                 <div class="flex items-center gap-4">
 
-                    <button class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                    <!-- <button class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
                         <span class="sr-only">Toggle menu</span>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              class="size-5"
@@ -94,7 +94,7 @@
                              stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>
@@ -104,13 +104,18 @@
             <div class="max-w-screen-xl mx-auto mb-6 mt-6 px-4 bg-white shadow-xl drop-shadow-sm d-flex justify-content-between align-content-center" style="padding-bottom: 40px; padding-top: 40px; border-radius:25px;">
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-5" style="padding-right: 50px; padding-left: 50px;">
-                    <div class="relative flex justify-center items-center">
+                    <div class="relative flex justify-center items-center w-full sm:max-w-[460px] mx-auto">
+
             
                         <div id="spin2" class="absolute z-50 justify-center text-white items-center font-bold" style="cursor: pointer;">SPIN!</div>
                         <div class="absolute z-20 arrow-right flex justify-center items-center"></div>
                         <div id="spin" class="absolute z-10 w-0 h-0 w-20 h-20 rounded-full border-white border-2 flex circle-center justify-center items-center" style="background: #2393dc;"></div>
             
-                        <canvas id="wheelCanvas" width="460" height="460" class="rounded-full"></canvas>
+                        <canvas
+  id="wheelCanvas"
+  class="rounded-full w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[460px] md:h-[460px]">
+</canvas>
+
             
             
                     </div>
@@ -160,7 +165,7 @@
     </div>
 
     <footer class="bg-white">
-        <div class="mx-auto max-w-screen-xl px-4 sm:px-6  lg:px-8">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 pb-3  lg:px-8">
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
             </div>
 
@@ -201,13 +206,14 @@
     
     
         function resizeCanvas() {
-            const size = canvas.clientWidth;
-            canvas.width = size;
-            canvas.height = size;
-            radius = 230;
-            center = { x: radius, y: radius };
-            drawWheel(currentNames, rotation);
-        }
+  const size = canvas.clientWidth;
+  canvas.width = size;
+  canvas.height = size;
+  radius = size / 2;
+  center = { x: radius, y: radius };
+  drawWheel(currentNames, rotation);
+}
+
     
         window.addEventListener("resize", resizeCanvas);
         resizeCanvas();
@@ -368,14 +374,25 @@
     
         <style>
         .arrow-right {
-            margin-left: 420px;
-            width: 0;
-            height: 0;
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-            border-right: 50px solid white;
-            filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.3));
-        }
+  margin-left: 420px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 50px solid white;
+  filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.3));
+}
+
+
+@media (max-width: 768px) {
+  .arrow-right {
+    margin-left: 290px; 
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-right: 35px solid white;
+  }
+}
+
     
         .circle-center {
             filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.3));
