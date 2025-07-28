@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WordPicker.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="bg-white">
+        <div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+
+
+            <div class="flex flex-1 items-center justify-end md:justify-between">
+                <a class="block text-teal-600" href="#">
+                    <span class="sr-only">Home</span>
+                    <svg class="h-8" xmlns:dc="http://purl.org/dc/elements/1.1/"
+                         xmlns:cc="http://creativecommons.org/ns#"
+                         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                         xmlns:svg="http://www.w3.org/2000/svg"
+                         xmlns="http://www.w3.org/2000/svg"
+                         xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                         xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                         width="125.34799"
+                         height="39.259972"
+                         viewBox="0 0 33.164989 10.387534"
+                         version="1.1"
+                         id="svg3194"
+                         inkscape:version="0.92.0 r15299"
+                         sodipodi:docname="cheil.svg">
+                        <defs id="defs3188">
+                            <clipPath id="clipPath3121"
+                                      clipPathUnits="userSpaceOnUse">
+                                <path inkscape:connector-curvature="0"
+                                      id="path3119"
+                                      d="M 0,0 H 623.622 V 680.315 H 0 Z" />
+                            </clipPath>
+                        </defs>
+                        <sodipodi:namedview id="base"
+                                            pagecolor="#ffffff"
+                                            bordercolor="#666666"
+                                            borderopacity="1.0"
+                                            inkscape:pageopacity="0.0"
+                                            inkscape:pageshadow="2"
+                                            inkscape:zoom="7.2136264"
+                                            inkscape:cx="62.173941"
+                                            inkscape:cy="19.129976"
+                                            inkscape:document-units="mm"
+                                            inkscape:current-layer="layer1"
+                                            showgrid="false"
+                                            fit-margin-top="0"
+                                            fit-margin-left="0"
+                                            fit-margin-right="0"
+                                            fit-margin-bottom="0"
+                                            units="px"
+                                            inkscape:window-width="1280"
+                                            inkscape:window-height="744"
+                                            inkscape:window-x="-4"
+                                            inkscape:window-y="-4"
+                                            inkscape:window-maximized="1" />
+                        <metadata id="metadata3191">
+                            <rdf:RDF>
+                                <cc:Work rdf:about="">
+                                    <dc:format>image/svg+xml</dc:format>
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                                    <dc:title></dc:title>
+                                </cc:Work>
+                            </rdf:RDF>
+                        </metadata>
+                        <g inkscape:label="Layer 1"
+                           inkscape:groupmode="layer"
+                           id="layer1"
+                           transform="translate(-86.359335,-191.13228)">
+                            <path inkscape:connector-curvature="0"
+                                  id="path3125"
+                                  style="fill:#231f20;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.35277778"
+                                  d="m 108.16486,193.71355 c -2.31493,0 -3.83716,1.72685 -3.83716,3.84563 0,2.32939 1.63406,3.80365 4.01672,3.80365 1.50001,0 3.06917,-0.87489 3.53237,-2.43452 h -2.36256 c -0.17321,0.39864 -0.6805,0.68227 -1.22237,0.68227 -0.81986,0 -1.3208,-0.59584 -1.39347,-1.47179 h 5.12903 c 0.0438,-0.18767 0.06,-0.38417 0.06,-0.57961 0,-1.97485 -1.23508,-3.84563 -3.92254,-3.84563 m -1.25342,3.0032 c 0.12524,-0.80363 0.59408,-1.24954 1.40758,-1.24954 0.70485,0 1.20156,0.56127 1.20156,1.24954 z m -5.51603,-2.75837 c -0.96591,0 -1.632303,0.31291 -2.132542,0.76094 v -3.22439 h -2.680053 v 9.66294 h 2.680053 v -3.66995 c 0,-1.08479 0.567619,-1.391 1.014942,-1.391 0.78493,0 0.93345,0.56726 0.93345,1.37971 v 3.68124 h 2.68005 v -4.81683 c 0,-1.61149 -1.17616,-2.38266 -2.4959,-2.38266 m -9.968442,5.02038 c -1.483078,0 -1.958269,-1.35361 -1.958269,-2.65148 0,-1.29999 0.475191,-2.65218 1.958269,-2.65218 1.309511,0 1.624542,1.06786 1.682397,1.41957 h 2.956278 c -0.267759,-2.42252 -2.061281,-3.8301 -4.555067,-3.8301 -2.965802,0 -5.018969,2.1209 -5.018969,5.06271 0,2.85433 1.87713,5.06024 5.018969,5.06024 2.766484,0 4.5974,-2.07045 4.5974,-4.01849 h -2.983441 c -0.190148,0.90558 -0.632178,1.60973 -1.697567,1.60973 m 21.177252,2.17911 h 2.67934 v -7.02346 h -2.67934 z m 4.10809,0 h 2.6797 v -9.66259 h -2.6797 z m -4.10809,-7.28098 2.79541,-2.38196 h -2.79541 z" />
+                        </g>
+                    </svg>
+                </a>
+                <div class="flex items-center gap-4">
+
+                    <button class="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+                        <span class="sr-only">Toggle menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             class="size-5"
+                             fill="none"
+                             viewBox="0 0 24 24"
+                             stroke="currentColor"
+                             stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="grid">
+        <main role="main" class="pb-3">
+            <div class="max-w-screen-xl mx-auto mb-6 mt-6 px-4 bg-white shadow-xl drop-shadow-sm d-flex justify-content-between align-content-center" style="padding-bottom: 40px; padding-top: 40px; border-radius:25px;">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-5" style="padding-right: 50px; padding-left: 50px;">
+                    <div class="relative flex justify-center items-center">
+            
+                        <div id="spin2" class="absolute z-50 justify-center text-white items-center font-bold" style="cursor: pointer;">SPIN!</div>
+                        <div class="absolute z-20 arrow-right flex justify-center items-center"></div>
+                        <div id="spin" class="absolute z-10 w-0 h-0 w-20 h-20 rounded-full border-white border-2 flex circle-center justify-center items-center" style="background: #2393dc;"></div>
+            
+                        <canvas id="wheelCanvas" width="460" height="460" class="rounded-full"></canvas>
+            
+            
+                    </div>
+                    
+                    <div>
+                        <label class="block font-bold text-2xl">Names here! ✍🏻</label>
+                        <label for="names" class="block font-semibold mb-2">Please input the names/things below, one per line: 👇🏻</label>
+                        <textarea id="namesInput" rows="12" class="w-full p-3 border resize-none" style="border-radius: 25px; border-color: lightgrey; border-width: 3px;">Eevee 🤎&#10;Flareon 🔥&#10;Vaporeon 💧&#10;Jolteon ⚡&#10;Leafeon 🌿&#10;Glaceon ❄️&#10;Umbreon 🌙&#10;Espeon ☀️&#10;Sylveon 🎀&#10;Ditto :)</textarea>
+            
+                        <button onclick="clearTextarea()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 w-full">
+                            Reset <i class="fa fa-refresh fa-spin" style="font-size:14px"></i>
+                        </button>
+                    </div>
+            
+                   
+                </div>
+            </div>
+            
+            
+            <div id="winnerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/75">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="p-4 sm:p-10 text-center overflow-y-auto">
+                        <span class="mb-4 inline-flex justify-center items-center w-[62px] h-[62px] rounded-full border-4 border-yellow-50 bg-yellow-100 text-yellow-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-emoji-wink-fill" viewBox="0 0 16 16">
+                                <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M7 6.5C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5M4.285 9.567a.5.5 0 0 0-.183.683A4.5 4.5 0 0 0 8 12.5a4.5 4.5 0 0 0 3.898-2.25.5.5 0 1 0-.866-.5A3.5 3.5 0 0 1 8 11.5a3.5 3.5 0 0 1-3.032-1.75.5.5 0 0 0-.683-.183m5.152-3.31a.5.5 0 0 0-.874.486c.33.595.958 1.007 1.687 1.007s1.356-.412 1.687-1.007a.5.5 0 0 0-.874-.486.93.93 0 0 1-.813.493.93.93 0 0 1-.813-.493" />
+                            </svg>
+                        </span>
+            
+                        <h3 id="winnerName" class="mb-2 text-2xl font-bold text-gray-800">
+                           
+                        </h3>
+             
+                        <p class="text-lg text-blue-700 font-semibold mb-6"> 🎉 Winner 🎉</p>
+            
+                        <div class="mt-6 flex justify-center gap-x-4">
+                            <button onclick="removeWinner()" class="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-full border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-600 transition-all text-sm">
+                                Remove
+                            </button>
+                            <button onclick="closeModal()" class="py-2.5 px-4 inline-flex justify-center items-center gap-2 rounded-full border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-white">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6  lg:px-8">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            </div>
+
+            <p class="text-xs text-center text-gray-500">&copy; 2025. Cheil Philippines. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+                
+            
+    <script>
+            
+        window.addEventListener("DOMContentLoaded", () => {
+            resizeCanvas();
+            currentNames = getNames();
+            drawWheel(currentNames, rotation);
+            animateIdleSpin();
+        });
+    
+    
+        const canvas = document.getElementById("wheelCanvas");
+        const ctx = canvas.getContext("2d");
+        const spinButton = document.getElementById("spin");
+        const spinText = document.getElementById("spin2");
+        canvas.addEventListener("click", spin);
+        spinButton.addEventListener("click", spin);
+        spinText.addEventListener("click", spin);
+        let radius = 230;
+        let center = { x: radius, y: radius };
+        let spinning = false;
+        let rotation = 0;
+        let currentNames = [];
+        let winner = "";
+        let idleSpinAngle = 0;
+        let idleSpinning = true;
+    
+    
+    
+        function resizeCanvas() {
+            const size = canvas.clientWidth;
+            canvas.width = size;
+            canvas.height = size;
+            radius = 230;
+            center = { x: radius, y: radius };
+            drawWheel(currentNames, rotation);
+        }
+    
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+    
+    
+        const namesInput = document.getElementById("namesInput");
+    
+        const modal = document.getElementById("winnerModal");
+        const winnerNameEl = document.getElementById("winnerName");
+    
+    
+        function getNames() {
+            return namesInput.value
+                .split('\n')
+                .map(name => name.trim())
+                .filter(name => name !== '');
+        }
+    
+        function setNames(names) {
+            namesInput.value = names.join('\n');
+        }
+    
+        function drawWheel(names, rotationAngle = 0) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (names.length === 0) return;
+    
+            const sliceAngle = (2 * Math.PI) / names.length;
+    
+            ctx.save();
+            ctx.translate(center.x, center.y);
+            ctx.rotate(rotationAngle);
+            ctx.translate(-center.x, -center.y);
+    
+            for (let i = 0; i < names.length; i++) {
+                const startAngle = i * sliceAngle;
+                const endAngle = (i + 1) * sliceAngle;
+    
+               ctx.beginPath();
+                ctx.moveTo(center.x, center.y);
+                ctx.arc(center.x, center.y, radius, startAngle, endAngle);
+    
+    
+                const gradient = ctx.createRadialGradient(center.x, center.y, 0, center.x, center.y, radius);
+                if (i % 2 === 0) {
+                    gradient.addColorStop(0, "#20BCDF");  
+                    gradient.addColorStop(1, "#097DB3");  
+                } else {
+                    gradient.addColorStop(0, "#FFFFFF");  
+                    gradient.addColorStop(1, "#53add5");  
+                }
+    
+                ctx.fillStyle = gradient;
+                ctx.fill();
+    
+    
+                ctx.save();
+                ctx.translate(center.x, center.y);
+                ctx.rotate(startAngle + sliceAngle / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "white";
+                const baseFontSize = 22;
+                const scaledFontSize = Math.max(10, baseFontSize - names.length / 2);
+                ctx.font = `${scaledFontSize}px sans-serif`;
+    
+                let name = names[i];
+                if (name.length > 20) {
+                    name = name.slice(0, 17) + '...';
+                }
+    
+                ctx.fillText(name, radius - 10, 10);
+    
+    
+    
+                ctx.restore();
+            }
+    
+            ctx.restore();
+        }
+    
+        function easeOutQuad(t) {
+            return t * (2 - t);
+        }
+    
+        function spin() {
+            currentNames = getNames();
+            if (currentNames.length === 0 || spinning) return;
+            idleSpinning = false;
+            spinning = true;
+            winner = "";
+    
+          
+            const duration = 7000; // 7 seconds
+            const totalRotation = 360 * 6 + Math.floor(Math.random() * 360);
+            const start = performance.now();
+    
+            function animate(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = easeOutQuad(progress);
+    
+                rotation = (totalRotation * eased * Math.PI) / 180;
+                drawWheel(currentNames, rotation);
+    
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    const finalAngle = (360 - ((rotation * 180 / Math.PI) % 360)) % 360;
+                    const sliceDeg = 360 / currentNames.length;
+                    const pickedIndex = Math.floor(finalAngle / sliceDeg);
+                    winner = currentNames[pickedIndex];
+    
+                    showModal(winner);
+                    spinning = false;
+                }
+            }
+    
+            requestAnimationFrame(animate);
+        }
+    
+        function animateIdleSpin() {
+            if (!idleSpinning) return;
+            idleSpinAngle += 0.010;
+            drawWheel(currentNames, idleSpinAngle);
+            requestAnimationFrame(animateIdleSpin);
+        }
+    
+        function showModal(name) {
+            winnerNameEl.textContent = name;
+            modal.classList.remove("hidden");
+        }
+    
+        function closeModal() {
+            modal.classList.add("hidden");
+        }
+    
+        function removeWinner() {
+            currentNames = currentNames.filter(n => n !== winner);
+            setNames(currentNames);
+            drawWheel(currentNames, 0);
+            closeModal();
+        }
+    
+        function clearTextarea() {
+          document.getElementById("namesInput").value = "";
+        }
+    
+    
+        namesInput.addEventListener("input", () => {
+            if (!spinning) {
+                currentNames = getNames();
+                drawWheel(currentNames, rotation);
+            }
+        });
+    
+        drawWheel([]);
+    </script>
+    
+    
+        <style>
+        .arrow-right {
+            margin-left: 420px;
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 50px solid white;
+            filter: drop-shadow(-10px 10px 5px rgba(0, 0, 0, 0.3));
+        }
+    
+        .circle-center {
+            filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.3));
+        }
+        </style>
+
+</body>
+</html>
