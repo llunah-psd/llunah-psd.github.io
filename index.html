@@ -1,665 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Hazel | Full-Stack Developer</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-        :root {
-            --background: #0c0c0c;
-            --surface: #141414;
-            --surface-light: #1c1c1c;
-            --text: #f5f5f5;
-            --muted: #a3a3a3;
-            --border: #292929;
-            --accent: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--background);
-            color: var(--text);
-            font-family: "DM Sans", sans-serif;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 24px 7%;
-
-            background: rgba(12, 12, 12, 0.85);
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .navbar nav {
-            display: flex;
-            gap: 32px;
-        }
-
-        .navbar nav a {
-            color: var(--muted);
-            font-size: 14px;
-            transition: 0.2s ease;
-        }
-
-        .navbar nav a:hover {
-            color: var(--text);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            min-height: 85vh;
-
-            display: flex;
-            align-items: center;
-
-            padding: 100px 7%;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .eyebrow {
-            margin-bottom: 18px;
-
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-
-            color: var(--muted);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: "Space Grotesk", sans-serif;
-        }
-
-        h1 {
-            font-size: clamp(48px, 7vw, 88px);
-            line-height: 1.02;
-            letter-spacing: -3px;
-        }
-
-        h1 span,
-        h2 span {
-            color: var(--muted);
-        }
-
-        .hero-description {
-            max-width: 650px;
-
-            margin-top: 32px;
-
-            color: var(--muted);
-
-            font-size: 18px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 14px;
-
-            margin-top: 40px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 13px 22px;
-
-            border-radius: 100px;
-
-            font-size: 14px;
-            font-weight: 600;
-
-            transition: 0.2s ease;
-        }
-
-        .button.primary {
-            background: var(--accent);
-            color: #000;
-        }
-
-        .button.primary:hover {
-            transform: translateY(-2px);
-        }
-
-        .button.secondary {
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-
-        .button.secondary:hover {
-            background: var(--surface);
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        .section {
-            padding: 120px 7%;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-heading {
-            margin-bottom: 60px;
-        }
-
-        .section-heading h2 {
-            font-size: clamp(36px, 5vw, 60px);
-            line-height: 1.05;
-            letter-spacing: -2px;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-content {
-            max-width: 750px;
-
-            color: var(--muted);
-
-            font-size: 20px;
-        }
-
-        .about-content p + p {
-            margin-top: 24px;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects-grid {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 20px;
-        }
-
-        .project-card {
-            min-height: 430px;
-
-            padding: 36px;
-
-            background: var(--surface);
-
-            border: 1px solid var(--border);
-            border-radius: 16px;
-
-            display: flex;
-            flex-direction: column;
-
-            transition: 0.25s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-
-            border-color: #444;
-        }
-
-        .project-number {
-            color: #555;
-
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 14px;
-        }
-
-        .project-content {
-            margin-top: auto;
-        }
-
-        .project-type {
-            margin-bottom: 10px;
-
-            color: var(--muted);
-
-            font-size: 11px;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .project-card h3 {
-            margin-bottom: 16px;
-
-            font-size: 28px;
-        }
-
-        .project-card p:not(.project-type) {
-            color: var(--muted);
-        }
-
-        .tech-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-
-            margin-top: 24px;
-        }
-
-        .tech-list span {
-            padding: 5px 10px;
-
-            border: 1px solid var(--border);
-            border-radius: 100px;
-
-            color: var(--muted);
-
-            font-size: 11px;
-        }
-
-        .project-link {
-            display: inline-block;
-
-            margin-top: 28px;
-
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills-grid {
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            border-top: 1px solid var(--border);
-            border-left: 1px solid var(--border);
-        }
-
-        .skill {
-            min-height: 150px;
-
-            padding: 28px;
-
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .skill strong {
-            display: block;
-
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 20px;
-        }
-
-        .skill span {
-            display: block;
-
-            margin-top: 8px;
-
-            color: var(--muted);
-
-            font-size: 13px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-section {
-            text-align: center;
-
-            max-width: 900px;
-
-            margin: auto;
-        }
-
-        .contact-section h2 {
-            font-size: clamp(40px, 6vw, 72px);
-
-            line-height: 1.05;
-
-            letter-spacing: -2px;
-        }
-
-        .contact-section > p:not(.eyebrow) {
-            max-width: 600px;
-
-            margin: 28px auto 36px;
-
-            color: var(--muted);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 30px 7%;
-
-            color: #666;
-
-            font-size: 13px;
-        }
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 800px) {
-
-            .navbar nav {
-                display: none;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <title>Hazel | Jr. Full-Stack Developer</title>
+
+        <style>
+            /* -- fonts -- */
+            @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+
+            /* -- variables -- */
+
+            :root {
+                --background: #0b0b0c;
+                --surface: #121214;
+                --surface-light: #18181b;
+                --text: #f4f4f5;
+                --muted: #a1a1aa;
+                --border: #27272a;
+                --accent: #ffffff;
             }
 
-            .hero {
-                min-height: 75vh;
 
-                padding-top: 80px;
+            /* -- reset -- */
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+
+            html {
+                scroll-behavior: smooth;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            body {
+                background: var(--background);
+                color: var(--text);
+                font-family:
+                    "DM Sans",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+
+                line-height: 1.6;
             }
-        }
 
-        @media (max-width: 500px) {
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
 
-            .hero,
-            .section {
-                padding-left: 5%;
-                padding-right: 5%;
+
+            /* -- fonts -- */
+            h1,
+            h2,
+            h3 {
+                font-family:
+                    "Space Grotesk",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.15;
             }
 
             h1 {
+                font-size: clamp(3rem, 7vw, 6rem);
+                letter-spacing: -0.05em;
+            }
+
+            h2 {
+                font-size: clamp(2rem, 4vw, 3rem);
+                letter-spacing: -0.035em;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                color: var(--muted);
+            }
+
+            .eyebrow {
+                margin-bottom: 18px;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 3px;
+                color: var(--muted);
+            }
+
+
+            /* -- navigation -- */
+
+            .navbar {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 24px 7%;
+                background: rgba(12, 12, 12, 0.85);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .logo {
+                font-family:
+                    "Space Grotesk",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .navbar nav {
+                display: flex;
+                gap: 32px;
+            }
+
+            .navbar nav a {
+                color: var(--muted);
+                font-size: 14px;
+                transition: color 0.2s ease;
+            }
+
+            .navbar nav a:hover {
+                color: var(--text);
+            }
+
+
+            /* -- hero content -- */
+
+            .hero {
+                min-height: 90vh;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid var(--border);
+                background-image:
+                    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+                background-size: 60px 60px;
+            }
+
+            .hero-content {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 120px 40px;
+            }
+
+            .hero h1 span {
+                display: block;
+                color: #71717a;
+            }
+
+            .hero-description {
+                max-width: 650px;
+                margin-top: 28px;
+                font-size: 1.15rem;
+                line-height: 1.8;
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                bottom: 30px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: var(--muted);
+                font-size: 11px;
+                letter-spacing: 2px;
+                white-space: nowrap;
+            }
+
+            /* -- buttons -- */
+
+            .hero-buttons {
+                display: flex;
+                gap: 12px;
+                margin-top: 36px;
+            }
+
+
+            .button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 12px 20px;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                transition:
+                    transform 0.2s ease,
+                    background 0.2s ease;
+            }
+
+            .button:hover {
+                transform: translateY(-2px);
+            }
+
+            .button.primary {
+                background: var(--accent);
+                color: #111;
+            }
+
+            .button.secondary {
+                border: 1px solid var(--border);
+                color: var(--text);
+            }
+
+            .button.secondary:hover {
+                background: var(--surface-light);
+            }
+
+
+            /* -- sections -- */
+
+            .section {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 120px 40px;
+            }
+
+            .section-heading {
+                max-width: 700px;
+                margin-bottom: 60px;
+            }
+
+            .section-heading h2 {
+                margin: 10px 0 20px;
+            }
+
+            .section-heading > p:last-child {
+                font-size: 1.05rem;
+            }
+
+            .section-heading .eyebrow {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .section-heading .eyebrow::before {
+                content: "";
+                width: 24px;
+                height: 1px;
+                background: var(--border);
+            }
+
+            /* -- about me -- */
+
+            .about-content {
+                max-width: 750px;
+                color: var(--muted);
+                font-size: 20px;
+            }
+
+            .about-content p + p {
+                margin-top: 24px;
+            }
+
+
+            /* -- project list -- */
+
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+
+            .project-card {
+                position: relative;
+                min-height: 430px;
+                display: flex;
+                flex-direction: column;
+                padding: 36px;
+                background: var(--surface);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                transition:
+                    transform 0.25s ease,
+                    border-color 0.25s ease,
+                    background 0.25s ease;
+            }
+
+            .project-card:hover {
+                transform: translateY(-6px);
+                background: var(--surface-light);
+                border-color: #444;
+            }
+
+            .project-number {
+                margin-bottom: 40px;
+                color: #71717a;
+                font-family:
+                    "Space Grotesk",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                font-size: 14px;
+            }
+
+            .project-content {
+                margin-top: auto;
+                max-width: 600px;
+            }
+
+            .project-type {
+                margin-bottom: 12px;
+                color: #71717a;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 2px;
+            }
+
+            .project-card h3 {
+                margin-bottom: 18px;
+                font-size: 28px;
+            }
+
+            .project-card p:not(.project-type):not(.project-note) {
+                margin-bottom: 16px;
+                color: var(--muted);
+            }
+
+            .tech-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 24px;
+            }
+
+            .tech-list span {
+                padding: 6px 10px;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                color: #d4d4d8;
+                font-size: 11px;
+            }
+
+            .project-note {
+                margin-top: 24px;
+                color: #71717a;
+                font-size: 12px;
+            }
+
+            .project-link {
+                display: inline-block;
+                margin-top: 12px;
+                color: var(--text);
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .project-link:hover {
+                text-decoration: underline;
+            }
+
+
+            /* -- relevant skills -- */
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                border-top: 1px solid var(--border);
+                border-left: 1px solid var(--border);
+            }
+
+            .skill {
+                min-height: 150px;
+                padding: 28px;
+                border-right: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .skill strong {
+                display: block;
+                font-family:
+                    "Space Grotesk",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                font-size: 20px;
+            }
+
+            .skill span {
+                display: block;
+                margin-top: 8px;
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+
+            /* -- contacts -- */
+
+            .contact-section {
+                width: 100%;
+                max-width: 900px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .contact-section .section-heading {
+                width: 100%;
+                max-width: none;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-section .eyebrow {
+                text-align: center;
+            }
+
+            .contact-section h2 {
+                width: 100%;
+                margin: 0;
+                text-align: center;
+                font-size: clamp(40px, 6vw, 72px);
+                line-height: 1.05;
                 letter-spacing: -2px;
             }
 
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .button {
+            .contact-section .section-heading > p:not(.eyebrow) {
                 width: 100%;
+                max-width: 600px;
+                margin: 28px auto 36px;
+                color: var(--muted);
+                text-align: center;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .contact-links {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin: 40px auto 0;
             }
-        }
-    </style>
-</head>
 
-<body>
+            .contact-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                padding: 14px 20px;
+                color: var(--text);
+                text-decoration: none;
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                background: var(--surface);
+                transition: 0.2s ease;
+            }
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <a href="#" class="logo">HZ.</a>
+            .contact-link:hover {
+                border-color: #444;
+                background: var(--surface-light);
+                transform: translateY(-2px);
+            }
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+            .contact-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .contact-link span:last-child {
+                font-size: 15px;
+            }
+            /* -- footer -- */
+
+            footer {
+                padding: 30px 7%;
+                color: #666;
+                font-size: 13px;
+            }
 
 
-    <!-- Hero -->
-    <main>
+            /*  -- responsiveness -- */
 
-        <section class="hero">
+            @media (max-width: 800px) {
 
-            <div class="hero-content">
+                .navbar nav {
+                    display: none;
+                }
 
-                <p class="eyebrow">JUNIOR FULL-STACK DEVELOPER</p>
+                .hero {
+                    min-height: auto;
+                    /* padding: 120px 24px 90px; */
+                }
 
-                <h1>
-                    Building web applications
-                    <span>that solve real problems.</span>
-                </h1>
+                .section {
+                    padding: 90px 24px;
+                }
 
-                <p class="hero-description">
-                    I'm a junior full-stack developer specializing in
-                    C#, ASP.NET Core, JavaScript, and SQL Server.
-                    Currently expanding my frontend skills with React.
-                </p>
+                .projects-grid {
+                    grid-template-columns: 1fr;
+                }
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="button primary">
-                        View My Work
-                    </a>
+                .skills-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
 
-                    <a href="#contact" class="button secondary">
-                        Contact Me
-                    </a>
+                .scroll-indicator {
+                    display: none;
+                }
+            }
+
+
+            @media (max-width: 500px) {
+
+                h1 {
+                    font-size: 2.8rem;
+                    letter-spacing: -0.04em;
+                }
+
+                .hero,
+                .section {
+                    padding-left: 5%;
+                    padding-right: 5%;
+                }
+
+                .hero-buttons {
+                    flex-direction: column;
+                }
+
+                .button {
+                    width: 100%;
+
+                    text-align: center;
+                }
+
+                .project-card {
+                    padding: 28px;
+                }
+
+                .skills-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media (max-width: 600px) {
+                .scroll-indicator {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- navigation bar -->
+        <header class="navbar">
+            <a href="#" class="logo">&lt;Hazel/&gt;</a>
+
+            <nav>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+
+        <!-- hero section -->
+        <main>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <p class="eyebrow">ASP.NET CORE DEVELOPER</p>
+
+                    <h1>
+                        I build reliable web applications
+                        <span>from backend to frontend.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Full-stack developer with 3 years of professional experience
+                        building web applications for real-world business needs.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="button primary">View My Work</a>
+                        <a href="#contact" class="button secondary">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <span>SCROLL TO EXPLORE</span>
+                    <span>↓</span>
+                </div>
+            </section>
+            
+
+            <!-- about section -->
+        <section id="about" class="section">
+                <div class="section-heading">
+                    <p class="eyebrow">ABOUT ME</p>
+                    <h2>Three years of building for the real world.</h2>
                 </div>
 
-            </div>
+                <div class="about-content">
+                    <p>
+                        I'm a junior full-stack developer with 3 years of professional experience
+                        building and maintaining web applications. My primary experience is
+                        with C#, ASP.NET Core, JavaScript, SQL Server, and Azure.
+                    </p>
 
-        </section>
+                    <p>
+                        I've worked across both backend and frontend development, from
+                        designing APIs and working with databases to building responsive
+                        interfaces and implementing business-specific functionality.
+                    </p>
 
+                    <p>
+                        I enjoy solving practical problems, learning new technologies, and
+                        turning requirements into reliable and maintainable applications.
+                    </p>
+                </div>
+            </section>
 
-        <!-- About -->
-        <section id="about" class="section">
-
-            <div class="section-heading">
-                <p class="eyebrow">ABOUT ME</p>
-                <h2>A little about me.</h2>
-            </div>
-
-            <div class="about-content">
-
-                <p>
-                    I'm a junior full-stack developer with professional
-                    experience building web applications for the
-                    telecommunications industry.
-                </p>
-
-                <p>
-                    My current work focuses primarily on C# and
-                    ASP.NET Core, working across both frontend and
-                    backend functionality for production systems.
-                </p>
-
-                <p>
-                    I'm also currently learning React and modern
-                    frontend development through personal projects.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- Projects -->
-        <section id="projects" class="section projects-section">
-
+                <!-- project list section -->
+            <section id="projects" class="section">
             <div class="section-heading">
                 <p class="eyebrow">SELECTED WORK</p>
-                <h2>Projects I've worked on.</h2>
+                <h2>Projects & Experience</h2>
+                <p>
+                    A selection of applications and systems I've worked on professionally
+                    and independently.
+                </p>
             </div>
-
 
             <div class="projects-grid">
 
-                <!-- GHOST PROJECT 1 -->
                 <article class="project-card">
-
                     <div class="project-number">01</div>
 
                     <div class="project-content">
-
-                        <p class="project-type">
-                            PROFESSIONAL PROJECT
-                        </p>
+                        <p class="project-type">PROFESSIONAL · CONSUMER TECHNOLOGY</p>
 
                         <h3>Smartphone Pre-Order Platform</h3>
 
                         <p>
-                            A campaign-based web application that
-                            allowed customers to configure smartphones,
-                            select available options, and submit
-                            pre-orders.
+                            Developed and maintained functionality for a smartphone pre-order 
+                            platform across multiple annual campaigns, implementing new features, 
+                            updates, and business requirements each year. The platform includes 
+                            product selection, customer information, validation, and order processing.
+                        </p>
+
+                        <p>
+                            Worked across both frontend and backend components to implement
+                            campaign-specific requirements and troubleshoot issues during
+                            development and testing.
+                        </p>
+
+                    <div class="tech-list">
+                        <span>C#</span>
+                        <span>ASP.NET Core</span>
+                        <span>JavaScript</span>
+                        <span>Tailwind CSS</span>
+                        <span>SQL Server</span>
+                        <span>REST APIs</span>
+                    </div>
+
+                        <p class="project-note">
+                            Production system · Source code is private
+                        </p>
+                    </div>
+                </article>
+
+
+                <article class="project-card">
+                    <div class="project-number">02</div>
+
+                <div class="project-content">
+                        <p class="project-type">PROFESSIONAL · CAMPAIGN PLATFORM</p>
+
+                        <h3>Receipt Validation & Voucher System</h3>
+
+                        <p>
+                            Developed a limited-time campaign platform where customers could upload
+                            receipts and receive vouchers after successful receipt validation.
+                            Integrated Azure OCR to extract and validate receipt information as part
+                            of the submission process.
+                        </p>
+
+                        <p>
+                            Built the administrative side for voucher management, report generation,
+                            and campaign monitoring, including functionality for replenishing
+                            available vouchers and tracking submission and voucher numbers through
+                            an administrative dashboard.
                         </p>
 
                         <div class="tech-list">
                             <span>C#</span>
                             <span>ASP.NET Core</span>
-                            <span>SQL Server</span>
+                            <span>Azure OCR</span>
                             <span>JavaScript</span>
+                            <span>Tailwind CSS</span>
+                            <span>SQL Server</span>
+                            <span>REST APIs</span>
                         </div>
 
-                        <a href="#" class="project-link">
-                            View Case Study →
-                        </a>
-
+                        <p class="project-note">
+                            Production campaign system · Source code is private
+                        </p>
                     </div>
-
                 </article>
 
+                
 
-                <!-- GHOST PROJECT 2 -->
                 <article class="project-card">
-
-                    <div class="project-number">02</div>
+                    <div class="project-number">03</div>
 
                     <div class="project-content">
+                        <p class="project-type">PROFESSIONAL · CLIENT PLATFORM</p>
 
-                        <p class="project-type">
-                            PROFESSIONAL PROJECT
-                        </p>
-
-                        <h3>Room Booking Management System</h3>
+                        <h3>Showroom Booking Management System</h3>
 
                         <p>
-                            A web-based booking system for managing
-                            meeting rooms, bookings, guest information,
-                            and booking-related workflows.
+                            Developed and maintained a web-based showroom booking system that allows
+                            clients to manage and monitor visitor schedules through an admin portal.
+                        </p>
+
+                        <p>
+                            The platform also provides a visitor-facing interface where showroom
+                            visitors can view available schedules and select a preferred date and
+                            time for their visit.
                         </p>
 
                         <div class="tech-list">
                             <span>C#</span>
                             <span>ASP.NET Core</span>
                             <span>Razor Pages</span>
+                            <span>Tailwind CSS</span>
                             <span>SQL Server</span>
+                            <span>REST APIs</span>
                         </div>
 
-                        <a href="#" class="project-link">
-                            View Case Study →
-                        </a>
-
+                        <p class="project-note">
+                            Production system · Source code is private
+                        </p>
                     </div>
 
                 </article>
 
 
-                <!-- GHOST PROJECT 3 -->
                 <article class="project-card">
-
-                    <div class="project-number">03</div>
+                    <div class="project-number">04</div>
 
                     <div class="project-content">
+                        <p class="project-type">PROFESSIONAL · CONSUMER TECHNOLOGY</p>
 
-                        <p class="project-type">
-                            PROFESSIONAL PROJECT
-                        </p>
-
-                        <h3>Product Configuration System</h3>
+                        <h3>Product Configuration & Order Flow</h3>
 
                         <p>
-                            A dynamic product selection workflow that
-                            handled product variants, storage options,
-                            colors, SKU availability, and allocation.
+                            Developed dynamic product-selection functionality for an
+                            e-commerce ordering flow, including product types, storage
+                            options, colors, and availability.
+                        </p>
+
+                        <p>
+                            Implemented frontend interactions and backend endpoints that
+                            dynamically loaded available options based on the customer's
+                            selections.
                         </p>
 
                         <div class="tech-list">
                             <span>C#</span>
                             <span>ASP.NET Core</span>
                             <span>JavaScript</span>
+                            <span>Tailwind CSS</span>
+                            <span>SQL Server</span>
+                            <span>REST APIs</span>
+                        </div>
+
+                        <p class="project-note">
+                            Production system · Source code is private
+                        </p>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">05</div>
+
+                <div class="project-content">
+                        <p class="project-type">PROFESSIONAL · INTERNAL SYSTEM</p>
+
+                        <h3>Internal Meeting Room Booking System</h3>
+
+                        <p>
+                            Developed an internal meeting room booking system that allows company
+                            employees to book meeting rooms using their company accounts and manage
+                            their reservations through a centralized platform.
+                        </p>
+
+                        <p>
+                            The system replaced the previous manual booking process using shared
+                            Google Sheets, providing a more structured way to manage room
+                            availability, reservations, and booking information.
+                        </p>
+
+                        <p>
+                            Implemented user authentication, booking management, room availability,
+                            validation, and database operations for the internal booking workflow.
+                        </p>
+
+                        <div class="tech-list">
+                            <span>C#</span>
+                            <span>ASP.NET Core</span>
+                            <span>Razor Pages</span>
+                            <span>Tailwind CSS</span>
                             <span>SQL Server</span>
                         </div>
 
-                        <a href="#" class="project-link">
-                            View Case Study →
-                        </a>
-
+                        <p class="project-note">
+                            In active use · Internal company system · Source code is private
+                        </p>
                     </div>
-
                 </article>
 
-
-                <!-- GHOST PROJECT 4 -->
                 <article class="project-card">
-
-                    <div class="project-number">04</div>
+                    <div class="project-number">06</div>
 
                     <div class="project-content">
-
-                        <p class="project-type">
-                            PERSONAL PROJECT
-                        </p>
+                        <p class="project-type">PERSONAL PROJECT</p>
 
                         <h3>React To-Do Application</h3>
 
                         <p>
-                            A personal learning project built while
-                            exploring React fundamentals including
-                            components, state, props, forms, and
-                            event handling.
+                            A personal task management application built with React,
+                            featuring task creation, completion tracking, and deletion.
+                        </p>
+
+                        <p>
+                            The application uses component-based architecture, state
+                            management, props, event handling, and dynamic list rendering.
                         </p>
 
                         <div class="tech-list">
@@ -669,106 +866,131 @@
                             <span>CSS</span>
                         </div>
 
-                        <a href="#" class="project-link">
-                            View Project →
-                        </a>
+                    <p class="project-note">
+                            Work in progress
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
+            <!-- skills section -->
+        <section id="skills" class="section">
+                <div class="section-heading">
+                    <p class="eyebrow">TECHNOLOGIES</p>
+                    <h2>Skills & Tools</h2>
+                    <p>
+                        Technologies and tools I use to build and maintain web applications.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill">
+                        <strong>C#</strong>
+                        <span>Backend Development</span>
                     </div>
 
-                </article>
+                    <div class="skill">
+                        <strong>ASP.NET Core</strong>
+                        <span>Web Applications & APIs</span>
+                    </div>
 
-            </div>
+                    <div class="skill">
+                        <strong>SQL Server</strong>
+                        <span>Database Development</span>
+                    </div>
 
-        </section>
+                    <div class="skill">
+                        <strong>Azure</strong>
+                        <span>Cloud Services</span>
+                    </div>
 
+                    <div class="skill">
+                        <strong>JavaScript</strong>
+                        <span>Frontend Development</span>
+                    </div>
 
-        <!-- Skills -->
-        <section id="skills" class="section">
+                    <div class="skill">
+                        <strong>React</strong>
+                        <span>Frontend Development</span>
+                    </div>
 
-            <div class="section-heading">
-                <p class="eyebrow">TECHNOLOGIES</p>
-                <h2>What I work with.</h2>
-            </div>
+                    <div class="skill">
+                        <strong>Tailwind CSS</strong>
+                        <span>UI & Styling</span>
+                    </div>
 
-            <div class="skills-grid">
+                    <div class="skill">
+                        <strong>HTML & CSS</strong>
+                        <span>Web Development</span>
+                    </div>
 
-                <div class="skill">
-                    <strong>C#</strong>
-                    <span>Backend Development</span>
+                    <div class="skill">
+                        <strong>REST APIs</strong>
+                        <span>API Integration</span>
+                    </div>
+
+                    <div class="skill">
+                        <strong>Git</strong>
+                        <span>Version Control</span>
+                    </div>
+
                 </div>
-
-                <div class="skill">
-                    <strong>ASP.NET Core</strong>
-                    <span>Web Applications & APIs</span>
-                </div>
-
-                <div class="skill">
-                    <strong>SQL Server</strong>
-                    <span>Database Development</span>
-                </div>
-
-                <div class="skill">
-                    <strong>JavaScript</strong>
-                    <span>Frontend Development</span>
-                </div>
-
-                <div class="skill">
-                    <strong>React</strong>
-                    <span>Currently Learning</span>
-                </div>
-
-                <div class="skill">
-                    <strong>HTML / CSS</strong>
-                    <span>Web Development</span>
-                </div>
-
-                <div class="skill">
-                    <strong>REST APIs</strong>
-                    <span>API Integration</span>
-                </div>
-
-                <div class="skill">
-                    <strong>Git</strong>
-                    <span>Version Control</span>
-                </div>
-
-            </div>
-
-        </section>
+            </section>
 
 
-        <!-- Contact -->
+            <!-- contact me section -->
         <section id="contact" class="section contact-section">
+                <div class="section-heading">
+                    <p class="eyebrow">CONTACT</p>
+                    <h2>Let's work together.</h2>
+                    <p>
+                        I'm open to discussing new opportunities, projects, and
+                        interesting ideas.
+                    </p>
+                </div>
 
-            <p class="eyebrow">GET IN TOUCH</p>
+                <div class="contact-links">
 
-            <h2>
-                Let's build something
-                <span>useful.</span>
-            </h2>
+                    <a href="mailto:brizohazel@gmail.com" class="contact-link">
+                        <span class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <span>brizohazel@gmail.com</span>
+                    </a>
+
+                    <a href="tel:+639289824857" class="contact-link">
+                        <span class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <span>+63 928 982 4857</span>
+                    </a>
+
+                    <a href="https://ph.linkedin.com/in/1un4/"
+                    class="contact-link"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                        <span class="contact-icon">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </span>
+                        <span>LinkedIn</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+
+
+        <!-- footer section -->
+        <footer>
 
             <p>
-                I'm currently open to opportunities where I can
-                continue growing as a full-stack developer.
+                © 2026 Hazel Brizo. Built with HTML & CSS.
             </p>
 
-            <a href="mailto:your@email.com" class="button primary">
-                Get In Touch
-            </a>
+        </footer>
 
-        </section>
-
-    </main>
-
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 Hazel. Built with HTML & CSS.
-        </p>
-
-    </footer>
-
-</body>
+    </body>
 </html>
